@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //Player Input
-    private float horizontalInput;
     private float verticalInput;
+    private float horizontalInput;
+    //private float mHInput;
+    //private float mVInput;
 
     // Start is called before the first frame update
     void Start()
@@ -17,13 +19,21 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Get inputs each frame
-        horizontalInput = Input.GetAxis("Horizontal");
+        //Get inputs each frame - WASD
         verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxis("Horizontal");
+
+        //Mouse Inputs
+        //mHInput = 2.0f * Input.GetAxis("Mouse X");
+        //mVInput = 2.0f * Input.GetAxis("Mouse Y");
 
         //movement - forward
-        transform.Translate(Vector3.forward * Time.deltaTime * 1.0f * verticalInput);
+        transform.Translate(Vector3.forward * Time.deltaTime * 7.0f * verticalInput);
         //movement - turning
-        transform.Translate(Vector3.forward * Time.deltaTime * 3.0f * horizontalInput);
+        transform.Rotate(Vector3.up, Time.deltaTime * 100.0f * horizontalInput);
+
+
+        //Later updating to turn and look based off of mouse input
+        //transform.Rotate(mVInput, mHInput, 0);
     }
 }
