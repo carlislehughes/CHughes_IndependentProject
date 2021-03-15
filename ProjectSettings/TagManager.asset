@@ -11,6 +11,11 @@ TagManager:
   - RDoor
   - RWindow
   - LTable
+  - D1
+  - D2
+  - D3
+  - W1
+  - W2
   layers:
   - Default
   - TransparentFX

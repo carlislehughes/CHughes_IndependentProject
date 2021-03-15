@@ -30,22 +30,22 @@ public class DaylightNighttime : MonoBehaviour
     {
         counter++;
 
-        if (counter > 60)
+        if (counter > 20)
         {
             counter = 0;
             switch (cycle)
             {
                 case 1:
-                    sun.intensity = 1.0f;
+                    sun.intensity = 0.5f;
                     break;
                 case 2:
-                    sun.intensity = 0.5f;
+                    sun.intensity = 0.0f;
                     break;
                 case 3:
-                    sun.intensity = 0f;
+                    sun.intensity = 0.5f;
                     break;
                 case 4:
-                    sun.intensity = 0.5f;
+                    sun.intensity = 1.0f;
                     break;
                 default:
                     sun.intensity = 1.0f;
@@ -54,6 +54,13 @@ public class DaylightNighttime : MonoBehaviour
             cycle++;
             counter = 0;
         }
-        if (cycle > 4) { cycle = 1; }
+        if (cycle > 4) 
+        { 
+            cycle = 1; 
+        }
+        Debug.Log("counter: " + counter); 
+        Debug.Log("cycle: " + cycle);
+
+
     }
 }
