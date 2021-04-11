@@ -104,7 +104,7 @@ public class Materials : MonoBehaviour
             }
         }
 
-        asPlayer.PlayOneShot(Hammersound, .4f);
+        asPlayer.PlayOneShot(Hammersound, .3f);
         dustSystem.Play();
 
     }
@@ -141,7 +141,7 @@ public class Materials : MonoBehaviour
                 materialCount--;
             }
         }
-        asPlayer.PlayOneShot(Hammersound, 1.0f);
+        asPlayer.PlayOneShot(Hammersound, .3f);
         dustSystem.Play();
 
     }

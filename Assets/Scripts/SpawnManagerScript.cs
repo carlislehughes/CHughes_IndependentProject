@@ -27,7 +27,8 @@ public class SpawnManagerScript : MonoBehaviour
 
     void SpawnEnemy()
     {
-        if (!gameOver && (dN.cycle == 3)){
+        if (!gameOver && (dN.cycle == 3  || dN.cycle == 4))
+        {
         int spawnLocation = Random.Range(0, spawnPoints.Length);
         Instantiate(enemy, spawnPoints[spawnLocation].transform.position, spawnPoints[spawnLocation].transform.rotation);
         }

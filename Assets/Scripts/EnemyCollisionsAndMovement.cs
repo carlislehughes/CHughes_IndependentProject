@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyCollisionsAndMovement : MonoBehaviour
 {
     public float speed = 30.0f;
+    //private float deathBuffer = 3 * Time.deltaTime;  Attempting to buffer the destroy of the object so the death animation plays
 
     public GameObject[] doorPrefabs;
     public GameObject[] windowPrefabs;
@@ -34,18 +35,21 @@ public class EnemyCollisionsAndMovement : MonoBehaviour
         }
     }
 
+
+
     void OnTriggerEnter(Collider collider)
     {
         GameObject collidedWith = collider.gameObject;
 
+        asEnemy.PlayOneShot(monsterGrunt, .4f);
 
         if ((collidedWith.CompareTag("Window")) || (collidedWith.CompareTag("W1")) || (collidedWith.CompareTag("W2")) || (collidedWith.CompareTag("RWindow")))
         {
 
+
             animEnemy.SetTrigger("Kick");
             DestroyWindows(collidedWith);
 
-            asEnemy.PlayOneShot(monsterGrunt, 1.0f);
 
             Destroy(gameObject);
 
@@ -56,7 +60,6 @@ public class EnemyCollisionsAndMovement : MonoBehaviour
             animEnemy.SetTrigger("Kick");
             DestroyDoors(collidedWith);
 
-            asEnemy.PlayOneShot(monsterGrunt, 1.0f);
 
             Destroy(gameObject);
 
