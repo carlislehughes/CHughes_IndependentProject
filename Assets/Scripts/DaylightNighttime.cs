@@ -7,6 +7,9 @@ public class DaylightNighttime : MonoBehaviour
     private int counter;
     private int cycle;
     Light sun;
+
+    public float DayLength;
+    private float rSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +21,11 @@ public class DaylightNighttime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        rSpeed = Time.deltaTime / DayLength;
+        transform.Rotate(0, rSpeed, 0);
+
+        //sun not leaking through floor
+        //if ( transform.rotation.y < 180) { }
     }
 
     /**
@@ -30,7 +37,7 @@ public class DaylightNighttime : MonoBehaviour
     {
         counter++;
 
-        if (counter > 20)
+        if (counter > 23)
         {
             counter = 0;
             switch (cycle)
