@@ -5,7 +5,7 @@ using UnityEngine;
 public class DaylightNighttime : MonoBehaviour
 {
     private int counter;
-    private int cycle;
+    public int cycle;
     Light sun;
 
     public float DayLength;

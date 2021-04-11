@@ -11,6 +11,8 @@ public class EnemyCollisionsAndMovement : MonoBehaviour
 
 
     private Animator animEnemy;
+    private AudioSource asEnemy;
+    public AudioClip monsterGrunt;
 
     private SpawnManagerScript sMS;
 
@@ -18,6 +20,7 @@ public class EnemyCollisionsAndMovement : MonoBehaviour
     void Start()
     {
         animEnemy = GetComponent<Animator>();
+        asEnemy = GetComponent<AudioSource>();
 
         sMS = GameObject.Find("SpawnManager").GetComponent<SpawnManagerScript>();
     }
@@ -41,6 +44,9 @@ public class EnemyCollisionsAndMovement : MonoBehaviour
 
             animEnemy.SetTrigger("Kick");
             DestroyWindows(collidedWith);
+
+            asEnemy.PlayOneShot(monsterGrunt, 1.0f);
+
             Destroy(gameObject);
 
         }
@@ -49,6 +55,9 @@ public class EnemyCollisionsAndMovement : MonoBehaviour
 
             animEnemy.SetTrigger("Kick");
             DestroyDoors(collidedWith);
+
+            asEnemy.PlayOneShot(monsterGrunt, 1.0f);
+
             Destroy(gameObject);
 
         }
