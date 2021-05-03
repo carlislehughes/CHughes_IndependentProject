@@ -38,7 +38,8 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.4482453, g: 0.49827206, b: 0.5755818, a: 1}
+  m_IndirectSpecularColor: {r: 0.0039957035, g: 0.00021792635, b: 0.000000051515347,
+    a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1428,7 +1429,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 2.5066e-41, z: 0, w: 5.90558e+10}
+  m_BoundingSphereOverride: {x: 0, y: 6.0766e-41, z: 0, w: NaN}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1439,13 +1440,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170076733}
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 19.36, y: 8.07, z: -16.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!114 &170076736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1459,7 +1460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cycle: 0
-  DayLength: 14
+  DayLength: 3
 --- !u!1001 &172791413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3359,6 +3360,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 153059636}
     m_Modifications:
+    - target: {fileID: 5186409979148281169, guid: 1bc0eb0dec1322f41ae096d2399aefba,
+        type: 3}
+      propertyPath: m_Range
+      value: 20.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5186409979273469773, guid: 1bc0eb0dec1322f41ae096d2399aefba,
         type: 3}
       propertyPath: m_RootOrder
@@ -22493,6 +22499,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 153059636}
     m_Modifications:
+    - target: {fileID: 5186409979148281169, guid: 1bc0eb0dec1322f41ae096d2399aefba,
+        type: 3}
+      propertyPath: m_Range
+      value: 15.95
+      objectReference: {fileID: 0}
     - target: {fileID: 5186409979273469773, guid: 1bc0eb0dec1322f41ae096d2399aefba,
         type: 3}
       propertyPath: m_RootOrder

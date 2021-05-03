@@ -47,37 +47,37 @@ public class DaylightNighttime : MonoBehaviour
                 case 1:
                     Debug.Log("case: 1, cycle" + cycle);
                     sun.intensity = 0.5f;
-                    //transform.Rotate(135f, 0.0f, 0.0f);
+                    transform.Rotate(90f, 0.0f, 0.0f);
                     //set sun rotation to morning
                     break;
                 case 2:
                     Debug.Log("case: 2, cycle" + cycle);
                     sun.intensity = 1.0f;
-                    //transform.Rotate(-45f, 0.0f, 0.0f);
+                    transform.Rotate(90f, 0.0f, 0.0f);
                     //set sun rotation to noon
                     break;
                 case 3:
                     Debug.Log("case: 3, cycle" + cycle);
                     sun.intensity = 0.5f;
-                    //transform.Rotate(-90f, 0.0f, 0.0f);
+                    transform.Rotate(90f, 0.0f, 0.0f);
                     //set sun rotation to afternoon
                     break;
                 case 4:
                     Debug.Log("case: 4, cycle" + cycle);
                     sun.intensity = 0.0f;
-                    //transform.Rotate(-90f, 0.0f, 0.0f);
+                    transform.Rotate(90f, 0.0f, 0.0f);
                     //set sun rotation to night
                     break;
                 default:
                     sun.intensity = 1.0f;
-                    //transform.Rotate(0f, 0.0f, 0.0f);
+                    transform.Rotate(0f, 0.0f, 0.0f);
                     break;
             }
             
         }
         if (cycle > 4) 
         { 
-            cycle = 1; 
+            cycle = 0; 
         }
         //Debug.Log("counter: " + counter); 
         //Debug.Log("cycle: " + cycle);
