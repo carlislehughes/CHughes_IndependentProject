@@ -36,6 +36,7 @@ public class Materials : MonoBehaviour
         if (collider.CompareTag("PowerUp"))
         {
             materialCount += 20;
+            Destroy(collidedWith);
         }
 
         if ((collidedWith.CompareTag("Window")) || (collidedWith.CompareTag("W1")) || (collidedWith.CompareTag("W2")))

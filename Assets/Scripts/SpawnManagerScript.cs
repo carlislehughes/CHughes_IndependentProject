@@ -41,18 +41,19 @@ public class SpawnManagerScript : MonoBehaviour
         enemySpawnSpeed -= 1.0f;
 
         currentWave = true;
+
     }
 
     void SpawnEnemy()
     {
-        if (!gameOver)
+        if (!gameOver && dN.cycle == 4)
         {
         int spawnLocation = Random.Range(0, spawnPoints.Length);
         Instantiate(enemy, spawnPoints[spawnLocation].transform.position, spawnPoints[spawnLocation].transform.rotation);
         }
-        else if (dN.cycle != 4)
+        else
         {
-            CancelInvoke();
+            CancelInvoke("SpawnEnemy");
             currentWave = false;
         }
     }

@@ -49,6 +49,7 @@ public class EnemyCollisionsAndMovement : MonoBehaviour
 
             animEnemy.SetTrigger("Kick");
             DestroyWindows(collidedWith);
+            Destroy(GetComponent<Collider>());
             StartCoroutine(EnemyDeathDelay());
             animEnemy.SetBool("Dead", true);
 
@@ -60,6 +61,7 @@ public class EnemyCollisionsAndMovement : MonoBehaviour
 
             animEnemy.SetTrigger("Kick");
             DestroyDoors(collidedWith);
+            Destroy(GetComponent<Collider>());
             StartCoroutine(EnemyDeathDelay());
             animEnemy.SetBool("Dead", true);
 

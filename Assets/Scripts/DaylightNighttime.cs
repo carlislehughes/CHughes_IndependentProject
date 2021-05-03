@@ -5,7 +5,7 @@ using UnityEngine;
 public class DaylightNighttime : MonoBehaviour
 {
     private int counter;
-    public int cycle;
+    public int cycle = 0;
     Light sun;
 
     public float DayLength;
@@ -13,7 +13,6 @@ public class DaylightNighttime : MonoBehaviour
     void Start()
     {
         sun = GetComponent<Light>();
-        cycle = 0;
         InvokeRepeating("Timer", 1.0f, 1.0f);
     }
 
@@ -30,10 +29,10 @@ public class DaylightNighttime : MonoBehaviour
      */
     void Timer()
     {
-        for(int i = 1; i > 4; i++)
-        {
+        //for(int i = 1; i > 4; i++)
+        //{
 
-        }
+        //}
 
 
 
@@ -42,39 +41,39 @@ public class DaylightNighttime : MonoBehaviour
         if (counter > DayLength)
         {
             counter = 0;
-            
+            cycle++;
             switch (cycle)
             {
                 case 1:
                     Debug.Log("case: 1, cycle" + cycle);
                     sun.intensity = 0.5f;
-                    transform.Rotate(135f, 0.0f, 0.0f);
+                    //transform.Rotate(135f, 0.0f, 0.0f);
                     //set sun rotation to morning
                     break;
                 case 2:
                     Debug.Log("case: 2, cycle" + cycle);
                     sun.intensity = 1.0f;
-                    transform.Rotate(-45f, 0.0f, 0.0f);
+                    //transform.Rotate(-45f, 0.0f, 0.0f);
                     //set sun rotation to noon
                     break;
                 case 3:
                     Debug.Log("case: 3, cycle" + cycle);
                     sun.intensity = 0.5f;
-                    transform.Rotate(-90f, 0.0f, 0.0f);
+                    //transform.Rotate(-90f, 0.0f, 0.0f);
                     //set sun rotation to afternoon
                     break;
                 case 4:
                     Debug.Log("case: 4, cycle" + cycle);
                     sun.intensity = 0.0f;
-                    transform.Rotate(-90f, 0.0f, 0.0f);
+                    //transform.Rotate(-90f, 0.0f, 0.0f);
                     //set sun rotation to night
                     break;
                 default:
                     sun.intensity = 1.0f;
-                    transform.Rotate(0f, 0.0f, 0.0f);
+                    //transform.Rotate(0f, 0.0f, 0.0f);
                     break;
             }
-            cycle++;
+            
         }
         if (cycle > 4) 
         { 
