@@ -49,9 +49,10 @@ public class EnemyCollisionsAndMovement : MonoBehaviour
 
             animEnemy.SetTrigger("Kick");
             DestroyWindows(collidedWith);
+            StartCoroutine(EnemyDeathDelay());
+            animEnemy.SetBool("Dead", true);
 
 
-            Destroy(gameObject);
 
         }
         else if ((collidedWith.CompareTag("Door")) || (collidedWith.CompareTag("D1")) || (collidedWith.CompareTag("D2")) || (collidedWith.CompareTag("D3")) || (collidedWith.CompareTag("RDoor")))
@@ -59,14 +60,14 @@ public class EnemyCollisionsAndMovement : MonoBehaviour
 
             animEnemy.SetTrigger("Kick");
             DestroyDoors(collidedWith);
+            StartCoroutine(EnemyDeathDelay());
+            animEnemy.SetBool("Dead", true);
 
-
-            Destroy(gameObject);
 
         }
     }
 
-    //Spend materials on collision with windows
+    //Destory Windows that enemies collide with
     void DestroyWindows(GameObject window)
     {
         //OpenWindow
@@ -96,11 +97,10 @@ public class EnemyCollisionsAndMovement : MonoBehaviour
             Destroy(window);
         }
 
-        animEnemy.SetBool("Dead", true);
 
     }
 
-    //Spend materials on collision with doors
+    //Destory Doors that enemies collide with
     void DestroyDoors(GameObject door)
     {
 
@@ -136,7 +136,11 @@ public class EnemyCollisionsAndMovement : MonoBehaviour
             Destroy(door);
         }
 
+    }
 
-        animEnemy.SetBool("Dead", true);
+    IEnumerator EnemyDeathDelay()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
     }
 }

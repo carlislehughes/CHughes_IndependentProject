@@ -12,6 +12,7 @@ public class Materials : MonoBehaviour
     private AudioSource asPlayer;
     public AudioClip Hammersound;
     public ParticleSystem dustSystem;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +31,12 @@ public class Materials : MonoBehaviour
     void OnTriggerEnter(Collider collider)
     {
         GameObject collidedWith = collider.gameObject;
+
+        //Check for Power UP
+        if (collider.CompareTag("PowerUp"))
+        {
+            materialCount += 20;
+        }
 
         if ((collidedWith.CompareTag("Window")) || (collidedWith.CompareTag("W1")) || (collidedWith.CompareTag("W2")))
         {

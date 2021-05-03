@@ -16,6 +16,7 @@ TagManager:
   - D3
   - W1
   - W2
+  - PowerUp
   layers:
   - Default
   - TransparentFX
