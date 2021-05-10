@@ -29,10 +29,6 @@ public class DaylightNighttime : MonoBehaviour
      */
     void Timer()
     {
-        //for(int i = 1; i > 4; i++)
-        //{
-
-        //}
 
 
 
