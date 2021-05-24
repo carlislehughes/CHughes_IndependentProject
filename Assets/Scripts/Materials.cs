@@ -48,10 +48,15 @@ public class Materials : MonoBehaviour
 
         if ((collidedWith.CompareTag("Window")) || (collidedWith.CompareTag("W1")) || (collidedWith.CompareTag("W2")))
         {
+
+            gameManager.instructionsPopUp.SetActive(true);
+            StartCoroutine(PopUpDelay());
             if (Input.GetKeyDown(KeyCode.E)) { ReinforceWindows(collidedWith); }
         }
         else if ((collidedWith.CompareTag("Door")) || (collidedWith.CompareTag("D1")) || (collidedWith.CompareTag("D2")) || (collidedWith.CompareTag("D3")))
         {
+            gameManager.instructionsPopUp.SetActive(true);
+            StartCoroutine(PopUpDelay());
             if (Input.GetKeyDown(KeyCode.E)) { ReinforceDoors(collidedWith); }
         }
         else
@@ -169,5 +174,11 @@ public class Materials : MonoBehaviour
         asPlayer.PlayOneShot(Hammersound, .3f);
         dustSystem.Play();
 
+    }
+
+    IEnumerator PopUpDelay()
+    {
+        yield return new WaitForSeconds(1);
+        gameManager.instructionsPopUp.SetActive(false);
     }
 }

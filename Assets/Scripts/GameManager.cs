@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI materialText;
     public TextMeshProUGUI dayCountText;
+    public GameObject instructionsPopUp;
     public Button restartButton;
     public GameObject TitleScreen;
     public GameObject GameOverScreen;
