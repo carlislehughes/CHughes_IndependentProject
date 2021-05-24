@@ -15,21 +15,22 @@ public class EnemyCollisionsAndMovement : MonoBehaviour
     private AudioSource asEnemy;
     public AudioClip monsterGrunt;
 
-    private SpawnManagerScript sMS;
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+
         animEnemy = GetComponent<Animator>();
         asEnemy = GetComponent<AudioSource>();
 
-        sMS = GameObject.Find("SpawnManager").GetComponent<SpawnManagerScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!sMS.gameOver)
+        if (gameManager.gameActive)
         {
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
         }
@@ -75,8 +76,8 @@ public class EnemyCollisionsAndMovement : MonoBehaviour
         //OpenWindow
         if (window.CompareTag("Window"))
         {
-            sMS.gameOver = true;
-            Debug.Log("Game Over!");
+            gameManager.GameOver();
+            //Debug.Log("Game Over!");
 
             Destroy(window);
         }
@@ -110,8 +111,8 @@ public class EnemyCollisionsAndMovement : MonoBehaviour
         if (door.CompareTag("Door"))
         {
             Destroy(door);
-            sMS.gameOver = true;
-            Debug.Log("Game Over!");
+            gameManager.GameOver();
+            //Debug.Log("Game Over!");
         }
         //1 Reinforcement
         else if (door.CompareTag("D1"))

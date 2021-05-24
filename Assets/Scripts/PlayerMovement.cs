@@ -10,20 +10,19 @@ public class PlayerMovement : MonoBehaviour
     //private float mHInput;
     //private float mVInput;
 
-
-    private SpawnManagerScript sMS;
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
-        sMS = GameObject.Find("SpawnManager").GetComponent<SpawnManagerScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!sMS.gameOver)
+        if (gameManager.gameActive)
         {
             //Get inputs each frame - WASD
             verticalInput = Input.GetAxis("Vertical");

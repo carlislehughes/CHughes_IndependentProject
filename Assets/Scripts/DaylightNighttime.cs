@@ -9,9 +9,17 @@ public class DaylightNighttime : MonoBehaviour
     Light sun;
 
     public float DayLength;
+
+    private GameManager gameManager;
+
+    public GameObject lanternOne;
+    public GameObject lanternTwo;
+
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+
         sun = GetComponent<Light>();
         InvokeRepeating("Timer", 1.0f, 1.0f);
     }
@@ -29,55 +37,60 @@ public class DaylightNighttime : MonoBehaviour
      */
     void Timer()
     {
-
-
-
-        counter++;
-
-        if (counter > DayLength)
+        if (gameManager.gameActive)
         {
-            counter = 0;
-            cycle++;
-            switch (cycle)
+
+            counter++;
+
+            if (counter > DayLength)
             {
-                case 1:
-                    Debug.Log("case: 1, cycle" + cycle);
-                    sun.intensity = 0.5f;
-                    transform.Rotate(90f, 0.0f, 0.0f);
-                    //set sun rotation to morning
-                    break;
-                case 2:
-                    Debug.Log("case: 2, cycle" + cycle);
-                    sun.intensity = 1.0f;
-                    transform.Rotate(90f, 0.0f, 0.0f);
-                    //set sun rotation to noon
-                    break;
-                case 3:
-                    Debug.Log("case: 3, cycle" + cycle);
-                    sun.intensity = 0.5f;
-                    transform.Rotate(90f, 0.0f, 0.0f);
-                    //set sun rotation to afternoon
-                    break;
-                case 4:
-                    Debug.Log("case: 4, cycle" + cycle);
-                    sun.intensity = 0.0f;
-                    transform.Rotate(90f, 0.0f, 0.0f);
-                    //set sun rotation to night
-                    break;
-                default:
-                    sun.intensity = 1.0f;
-                    transform.Rotate(0f, 0.0f, 0.0f);
-                    break;
+                counter = 0;
+                cycle++;
+                switch (cycle)
+                {
+                    case 1:
+                        //Debug.Log("case: 1, cycle" + cycle);
+                        sun.intensity = 0.5f;
+                        transform.Rotate(90f, 0.0f, 0.0f);
+                        //set sun rotation to morning
+                        lanternOne.SetActive(false);
+                        lanternTwo.SetActive(false);
+                        break;
+                    case 2:
+                        //Debug.Log("case: 2, cycle" + cycle);
+                        sun.intensity = 1.0f;
+                        transform.Rotate(90f, 0.0f, 0.0f);
+                        //set sun rotation to noon
+                        break;
+                    case 3:
+                        //Debug.Log("case: 3, cycle" + cycle);
+                        sun.intensity = 0.5f;
+                        transform.Rotate(90f, 0.0f, 0.0f);
+                        //set sun rotation to afternoon
+                        break;
+                    case 4:
+                        //Debug.Log("case: 4, cycle" + cycle);
+                        sun.intensity = 0.0f;
+                        transform.Rotate(90f, 0.0f, 0.0f);
+                        //set sun rotation to night
+                        gameManager.UpdateDay();
+                        lanternOne.SetActive(true);
+                        lanternTwo.SetActive(true);
+                        break;
+                    default:
+                        sun.intensity = 1.0f;
+                        transform.Rotate(0f, 0.0f, 0.0f);
+                        break;
+                }
+
             }
-            
-        }
-        if (cycle > 4) 
-        { 
-            cycle = 0; 
-        }
-        //Debug.Log("counter: " + counter); 
-        //Debug.Log("cycle: " + cycle);
+            if (cycle > 4)
+            {
+                cycle = 0;
+            }
+            //Debug.Log("counter: " + counter); 
+            //Debug.Log("cycle: " + cycle);
 
-
+        }
     }
 }

@@ -13,20 +13,20 @@ public class Materials : MonoBehaviour
     public AudioClip Hammersound;
     public ParticleSystem dustSystem;
 
+
+    private GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        materialCount = 5;
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
+        materialCount = 5;
+        gameManager.UpdateMaterials(materialCount);
 
         asPlayer = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     void OnTriggerEnter(Collider collider)
     {
@@ -36,6 +36,7 @@ public class Materials : MonoBehaviour
         if (collider.CompareTag("PowerUp"))
         {
             materialCount += 20;
+            gameManager.UpdateMaterials(materialCount);
             Destroy(collidedWith);
         }
 
@@ -61,6 +62,7 @@ public class Materials : MonoBehaviour
             float randMats = Random.Range(1, 6);
             materialCount += (int)randMats;
 
+            gameManager.UpdateMaterials(materialCount);
             //Destory Table
             Destroy(other);
         }
@@ -70,6 +72,7 @@ public class Materials : MonoBehaviour
             float randMats = Random.Range(6, 15);
             materialCount += (int)randMats;
 
+            gameManager.UpdateMaterials(materialCount);
             //Destory Large Table
             Destroy(other);
         }
@@ -79,6 +82,7 @@ public class Materials : MonoBehaviour
             float randMats = Random.Range(10, 20);
             materialCount += (int)randMats;
 
+            gameManager.UpdateMaterials(materialCount);
             //Destory Couch
             Destroy(other);
         }
@@ -97,18 +101,21 @@ public class Materials : MonoBehaviour
                 Instantiate(windowPrefabs[1], window.transform.position, window.transform.rotation);
                 Destroy(window);
                 materialCount--;
+                gameManager.UpdateMaterials(materialCount);
             }
             else if (window.CompareTag("W1"))
             {
                 Instantiate(windowPrefabs[2], window.transform.position, window.transform.rotation);
                 Destroy(window);
                 materialCount--;
+                gameManager.UpdateMaterials(materialCount);
             }
             else if (window.CompareTag("W2"))
             {
                 Instantiate(windowPrefabs[3], window.transform.position, window.transform.rotation);
                 Destroy(window);
                 materialCount--;
+                gameManager.UpdateMaterials(materialCount);
             }
         }
 
@@ -129,24 +136,28 @@ public class Materials : MonoBehaviour
                 Instantiate(doorPrefabs[1], door.transform.position, door.transform.rotation);
                 Destroy(door);
                 materialCount--;
+                gameManager.UpdateMaterials(materialCount);
             }
             else if (door.CompareTag("D1"))
             {
                 Instantiate(doorPrefabs[2], door.transform.position, door.transform.rotation);
                 Destroy(door);
                 materialCount--;
+                gameManager.UpdateMaterials(materialCount);
             }
             else if (door.CompareTag("D2"))
             {
                 Instantiate(doorPrefabs[3], door.transform.position, door.transform.rotation);
                 Destroy(door);
                 materialCount--;
+                gameManager.UpdateMaterials(materialCount);
             }
             else if (door.CompareTag("D3"))
             {
                 Instantiate(doorPrefabs[4], door.transform.position, door.transform.rotation);
                 Destroy(door);
                 materialCount--;
+                gameManager.UpdateMaterials(materialCount);
             }
         }
         asPlayer.PlayOneShot(Hammersound, .3f);
