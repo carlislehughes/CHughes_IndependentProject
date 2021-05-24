@@ -16,6 +16,7 @@ public class Materials : MonoBehaviour
 
     private GameManager gameManager;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +28,13 @@ public class Materials : MonoBehaviour
         asPlayer = GetComponent<AudioSource>();
     }
 
+    private void Update()
+    {
 
-    void OnTriggerEnter(Collider collider)
+    }
+
+
+    void OnTriggerStay(Collider collider)
     {
         GameObject collidedWith = collider.gameObject;
 
@@ -42,11 +48,11 @@ public class Materials : MonoBehaviour
 
         if ((collidedWith.CompareTag("Window")) || (collidedWith.CompareTag("W1")) || (collidedWith.CompareTag("W2")))
         {
-            ReinforceWindows(collidedWith);
+            if (Input.GetKeyDown(KeyCode.E)) { ReinforceWindows(collidedWith); }
         }
         else if ((collidedWith.CompareTag("Door")) || (collidedWith.CompareTag("D1")) || (collidedWith.CompareTag("D2")) || (collidedWith.CompareTag("D3")))
         {
-            ReinforceDoors(collidedWith);
+            if (Input.GetKeyDown(KeyCode.E)) { ReinforceDoors(collidedWith); }
         }
         else
         {
