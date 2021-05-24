@@ -41,12 +41,12 @@ public class EnemyCollisionsAndMovement : MonoBehaviour
     {
         GameObject collidedWith = collider.gameObject;
 
-        asEnemy.PlayOneShot(monsterGrunt, .4f);
+        
 
         if ((collidedWith.CompareTag("Window")) || (collidedWith.CompareTag("W1")) || (collidedWith.CompareTag("W2")) || (collidedWith.CompareTag("RWindow")))
         {
 
-
+            asEnemy.PlayOneShot(monsterGrunt, .4f);
             animEnemy.SetTrigger("Kick");
             DestroyWindows(collidedWith);
             Destroy(GetComponent<Collider>());
@@ -58,7 +58,7 @@ public class EnemyCollisionsAndMovement : MonoBehaviour
         }
         else if ((collidedWith.CompareTag("Door")) || (collidedWith.CompareTag("D1")) || (collidedWith.CompareTag("D2")) || (collidedWith.CompareTag("D3")) || (collidedWith.CompareTag("RDoor")))
         {
-
+            asEnemy.PlayOneShot(monsterGrunt, .4f);
             animEnemy.SetTrigger("Kick");
             DestroyDoors(collidedWith);
             Destroy(GetComponent<Collider>());
